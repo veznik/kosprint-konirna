@@ -1870,8 +1870,16 @@ function printBoxNumbers() {
       align-items: center;
       justify-content: center;
       text-align: center;
+      position: relative;
     }
     .box-page:last-child { page-break-after: avoid; }
+    .box-logo-tl {
+      position: absolute;
+      top: 14mm;
+      left: 14mm;
+      height: 22mm;
+      object-fit: contain;
+    }
     .box-label {
       font-size: 90pt;
       font-weight: 700;
@@ -1895,11 +1903,12 @@ function printBoxNumbers() {
       letter-spacing: 1px;
     }
   `;
+  var logoTL = '<img class="box-logo-tl" src="https://www.ceskyorientak.cz/wp-content/uploads/2025/03/logo_tmave.svg" alt="ČSOS">';
   var html = '';
   for (var i = 1; i <= 8; i++) {
     var reserve = i >= 7 ? ' reserve' : '';
     var foot = i >= 7 ? 'rezervní stan 3x3 m' : '[Název závodu]';
-    html += '<div class="box-page' + reserve + '"><div class="box-label">BOX</div><div class="box-number">' + i + '</div><div class="box-foot">' + foot + '</div></div>';
+    html += '<div class="box-page' + reserve + '">' + logoTL + '<div class="box-label">BOX</div><div class="box-number">' + i + '</div><div class="box-foot">' + foot + '</div></div>';
   }
   var w = window.open('', '_blank');
   w.document.write('<!DOCTYPE html><html lang="cs"><head><meta charset="UTF-8"><title>Čísla na boxy 1-8</title><style>' + css + '</style></head><body>' + html + '</body></html>');
