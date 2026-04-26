@@ -1908,7 +1908,7 @@ function printBoxNumbers() {
   for (var i = 1; i <= 8; i++) {
     var reserve = i >= 7 ? ' reserve' : '';
     var foot = i >= 7 ? 'rezervní stan 3x3 m' : '[Název závodu]';
-    html += '<div class="box-page' + reserve + '">' + logoTL + '<div class="box-label">BOX</div><div class="box-number">' + i + '</div><div class="box-foot">' + foot + '</div></div>';
+    html += '<div class="box-page' + reserve + '">' + logoTL + '<div class="box-number">' + i + '</div><div class="box-foot">' + foot + '</div></div>';
   }
   var w = window.open('', '_blank');
   w.document.write('<!DOCTYPE html><html lang="cs"><head><meta charset="UTF-8"><title>Čísla na boxy 1-8</title><style>' + css + '</style></head><body>' + html + '</body></html>');
